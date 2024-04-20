@@ -7,12 +7,9 @@
     <title>example.com</title>
     <link rel="stylesheet" type="text/css" href="static/example.css"/>
 </head>
-
 <body ondragstart="window.event.returnValue=false" oncontextmenu="window.event.returnValue=false"
       onselectstart="event.returnValue=false">
-
 <div id="container">
-
     <div>
         <h1 id="h1">example.com</h1>
         <h2 id="h2">Is for sale</h2>
@@ -24,12 +21,8 @@
         <p>&nbsp;</p>
         <p>&nbsp;</p>
     </div>
-
 </div>
-
 <canvas id="canvas"></canvas>
-
-
 <script>
     var Stats = function () {
         var e = Date.now(), t = e, i = 0, n = 1 / 0, r = 0, s = 0, o = 1 / 0, a = 0, l = 0, h = 0,
@@ -78,8 +71,12 @@
             }
         }
     };
+    var currentDomain = window.location.hostname;
+    document.querySelector('meta[name="description"]').setAttribute('content', currentDomain);
+    document.querySelector('meta[name="keywords"]').setAttribute('content', currentDomain);
+    document.title = currentDomain;
+    document.getElementById('h1').textContent = currentDomain;
 </script>
 <script type="text/javascript" src="static/example.js"></script>
-
 </body>
 </html>
