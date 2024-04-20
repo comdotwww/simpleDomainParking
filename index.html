@@ -14,7 +14,7 @@
         <h1 id="h1">example.com</h1>
         <h2 id="h2">Is for sale</h2>
         <p>&nbsp;</p>
-        <p><strong><a href="mailto:example@example.com">Email: example@example.com</a></strong></p>
+        <p><strong><a id="a1" href="mailto:example@example.com">Email: example@example.com</a></strong></p>
         <p>&nbsp;</p>
         <p>&nbsp;</p>
         <p>&nbsp;</p>
@@ -71,11 +71,13 @@
             }
         }
     };
-    var currentDomain = window.location.hostname;
+    var currentDomain = document.domain.split('.').slice(-2).join('.');
     document.querySelector('meta[name="description"]').setAttribute('content', currentDomain);
     document.querySelector('meta[name="keywords"]').setAttribute('content', currentDomain);
     document.title = currentDomain;
     document.getElementById('h1').textContent = currentDomain;
+    document.getElementById('a1').textContent = 'Email: domain@' + currentDomain;
+    document.getElementById('a1').href = 'mailto:domain@' + currentDomain;
 </script>
 <script type="text/javascript" src="static/example.js"></script>
 </body>
